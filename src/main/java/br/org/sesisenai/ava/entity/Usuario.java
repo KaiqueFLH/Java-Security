@@ -2,10 +2,13 @@ package br.org.sesisenai.ava.entity;
 
 import br.org.sesisenai.ava.dto.abstraction.ResponseConversorDTO;
 import br.org.sesisenai.ava.dto.implementation.usuario.UsuarioResponseDTO;
+import br.org.sesisenai.ava.security.model.entity.UsuarioDetailsEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -23,7 +26,6 @@ public class Usuario implements ResponseConversorDTO<UsuarioResponseDTO> {
     private String nome;
     private String email;
     private String senha;
-
     @Column(name = "data_cadastro")
     private LocalDateTime dataCadastro;
 
@@ -45,6 +47,11 @@ public class Usuario implements ResponseConversorDTO<UsuarioResponseDTO> {
     public Usuario(Long id) {
         this.id = id;
     }
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JsonIgnore
+    @ToString.Exclude
+    private UsuarioDetailsEntity userDetailsENTITY;
 }
 
 

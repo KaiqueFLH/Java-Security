@@ -19,7 +19,7 @@ public class CursoController {
 
     private CursoService cursoService;
 
-    @GetMapping
+    @GetMapping("/getAll")
     public ResponseEntity<Page<CursoResponseDTO>> findAll(Pageable pageable) {
         try {
             Page<CursoResponseDTO> aulas = cursoService.buscarCursos(pageable);

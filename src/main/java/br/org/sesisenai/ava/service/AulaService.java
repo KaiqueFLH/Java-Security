@@ -3,11 +3,14 @@ package br.org.sesisenai.ava.service;
 import br.org.sesisenai.ava.dto.implementation.aula.AulaPostRequestDTO;
 import br.org.sesisenai.ava.dto.implementation.aula.AulaPutRequestDTO;
 import br.org.sesisenai.ava.dto.implementation.aula.AulaResponseDTO;
+import br.org.sesisenai.ava.dto.implementation.curso.CursoDTO;
+import br.org.sesisenai.ava.dto.implementation.curso.CursoResponseDTO;
 import br.org.sesisenai.ava.entity.Aula;
 import br.org.sesisenai.ava.entity.Curso;
 import br.org.sesisenai.ava.repository.AulaRepository;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -27,6 +30,10 @@ public class AulaService {
         try {
             cursoService.verificarExistencia(cursoId);
             Aula aula = aulaDTO.toEntity();
+            CursoResponseDTO cursoResponseDTO = cursoService.buscarCurso(cursoId);
+            Curso curso = new Curso();
+            BeanUtils.copyProperties(cursoResponseDTO,curso);
+            aula.setCurso(curso);
             aula = aulaRepository.save(aula);
             return aula.toDTO();
         } catch (Exception e) {
