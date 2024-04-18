@@ -25,7 +25,7 @@ public class SecurityConfig {
         httpSecurity.authorizeHttpRequests(authorizeRequests -> authorizeRequests
                 .requestMatchers(HttpMethod.GET, "/api/cursos").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/cursos/{id}").permitAll()
-                .requestMatchers(HttpMethod.POST, "/api/usuarios").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/usuarios").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/instrutor").permitAll()
                 .requestMatchers(HttpMethod.POST, "/login").permitAll()
                 .anyRequest().authenticated());
