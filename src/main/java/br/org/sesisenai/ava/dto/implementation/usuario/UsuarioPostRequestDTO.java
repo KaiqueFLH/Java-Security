@@ -21,8 +21,8 @@ public class UsuarioPostRequestDTO implements CriacaoRequestConversorDTO<Usuario
     public Usuario toEntity() {
         Usuario usuario = new Usuario();
         usuario.setNome(this.nome);
-        usuario.setEmail(this.email);
-        usuario.setSenha(this.senha);
+        usuario.setUsername(this.email);
+        usuario.setPassword(this.senha);
         usuario.setDataCadastro(LocalDateTime.now());
         return usuario;
     }

@@ -33,7 +33,7 @@ public class Instrutor extends Usuario {
         InstrutorResponseDTO instrutorResponseDTO = new InstrutorResponseDTO();
         instrutorResponseDTO.setId(this.getId());
         instrutorResponseDTO.setNome(this.getNome());
-        instrutorResponseDTO.setEmail(this.getEmail());
+        instrutorResponseDTO.setEmail(this.getUsername());
         instrutorResponseDTO.setAreaEspecializacao(this.areaEspecializacao);
         instrutorResponseDTO.setDataCadastro(this.getDataCadastro());
         return instrutorResponseDTO;

@@ -23,8 +23,8 @@ public class InstrutorPostRequestDTO implements CriacaoRequestConversorDTO<Instr
     public Instrutor toEntity() {
         Instrutor instrutor = new Instrutor();
         instrutor.setNome(this.nome);
-        instrutor.setEmail(this.email);
-        instrutor.setSenha(this.senha);
+        instrutor.setUsername(this.email);
+        instrutor.setPassword(this.senha);
         instrutor.setAreaEspecializacao(this.areaEspecializacao);
         instrutor.setDataCadastro(LocalDateTime.now());
         return instrutor;

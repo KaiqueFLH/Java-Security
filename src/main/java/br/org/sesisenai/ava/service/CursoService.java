@@ -19,7 +19,6 @@ import java.util.NoSuchElementException;
 @Service
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 public class CursoService {
 
     @Autowired
